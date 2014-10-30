@@ -1,0 +1,26 @@
+{% extends "::base.html.twig" %}
+
+{% from 'MopaBootstrapBundle::flash.html.twig' import session_flash %}
+
+{% block navbar %}
+    {% embed '@MopaBootstrap/Navbar/navbar.html.twig' with { navbar: true, fixedTop: true } %}
+        {% block brand %}
+            {#
+            <a class="navbar-brand" href="{{ path('homepage') }}">{{ 'Incidencias'|trans }}</a>
+            #}
+        {% endblock %}
+
+        {% block menu %}
+            {% if app.user %}
+                {#
+                {{ mopa_bootstrap_menu('BackendBundle:Builder:mainMenu') }}
+                {{ mopa_bootstrap_menu('BackendBundle:Builder:logoutMenu') }}
+                #}
+            {% endif %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content_content %}
+    {% block fos_user_content %}{% endblock fos_user_content %}
+{% endblock content_content %}

@@ -1,0 +1,5 @@
+doctrine_migrations:
+    dir_name: %kernel.root_dir%/Resources/DoctrineMigrations
+    namespace: RTD\Doctrine\Migrations
+    table_name: migration_versions
+    name: robatudinero.com Migrations

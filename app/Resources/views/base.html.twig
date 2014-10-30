@@ -1,0 +1,139 @@
+{% extends "MopaBootstrapBundle::base_initializr.html.twig" %}
+
+{% from 'MopaBootstrapBundle::flash.html.twig' import session_flash %}
+
+{% block flashes %}
+    {% if app.session.flashbag.peekAll|length > 0 %}
+        <div class="row">
+            <div class="col-sm-12">
+                {{ session_flash(true) }}
+            </div>
+        </div>
+    {% endif %}
+{% endblock flashes %}
+
+{% block navbar %}
+    {% embed '@MopaBootstrap/Navbar/navbar.html.twig' with { navbar: true, fixedTop: true } %}
+        {% block brand %}
+            <a class="navbar-brand" href="{{ path('backend_dashboard') }}">{{ 'Incidencias'|trans }}</a>
+        {% endblock %}
+
+        {% block menu %}
+            {% if app.user %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">{{ app.user.name }}</a>
+                    </li>
+                    <li><a href="{{ path('sg_backend.security.logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                </ul>
+            {% endif %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content_div_start %}<div class="content" style="padding-top: 20px">{% endblock content_div_start %}
+
+{% block headline %}{% endblock headline %}
+
+{% block content %}
+    <div class="{% block content_class %}col-sm-12 col-md-12 col-lg-12 col-xs-12{% endblock content_class %}">
+        {% if app.user %}
+            {% block breadcrumbs %}
+                <ol class="breadcrumb">
+                    {% block breadcrumbs_links %}
+                        <li><a href="{{ path('backend_dashboard') }}">{{ 'Home'|trans }}</a></li>
+                    {% endblock breadcrumbs_links %}
+                </ol>
+            {% endblock breadcrumbs %}
+        {% endif %}
+        {% block content_content %}
+            {% block fos_user_content %}{% endblock fos_user_content %}
+        {% endblock content_content %}
+    </div>
+
+    {% block sidebar %}
+        <div class="col-sm-3">
+            {% block content_sidebar %}
+
+            {% endblock content_sidebar %}
+        </div>
+    {% endblock sidebar %}
+{% endblock content %}
+
+{% block head_style %}
+    {{ parent() }}
+
+    {#
+    <link href="/bundles/vocentobackend/css/sports-data/jquery-ui-1.10.4.custom.min.css" type="text/css" rel="stylesheet" media="screen" />
+    #}
+{% endblock head_style %}
+
+{% block foot_script %}
+    {# Asynchronous Google Analytics snippet grabbed from:
+       http://mathiasbynens.be/notes/async-analytics-snippet#dont-push-it #}
+    {# more GA tweaks:
+       http://html5boilerplate.com/docs/ga-augments/ #}
+    {% if google['analytics'] is defined %}
+        <script>
+            var _gaq = [['_setAccount', '{{ google['analytics'] }}'], ['_trackPageview']];
+            (function(d, t) {
+                var g = d.createElement(t),
+                        s = d.getElementsByTagName(t)[0];
+                g.async = g.src = '//www.google-analytics.com/ga.js';
+                s.parentNode.insertBefore(g, s);
+            }(document, 'script'));
+        </script>
+    {% endif %}
+
+    {# To only use a subset or add more js overwrite and copy paste this block
+       To speed up page loads save a copy of jQuery in your project and override
+       this block to include the correct path. Otherwise the regeneration is
+       done on every load in dev more with use_controller: true #}
+
+    {# removed jQuery from assetic load as it is loaded from Google CDN above #}
+    {% javascripts
+    '@SGBackendBundle/Resources/public/js/jquery-1.7.2.min.js'
+    '@SGBackendBundle/Resources/public/js/jquery-ui-1.10.4.custom.min.js'
+    '@SGBackendBundle/Resources/public/datepicker/js/bootstrap-datepicker.js'
+
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/tooltip.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/affix.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/alert.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/button.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/carousel.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/collapse.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/dropdown.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/modal.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/popover.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/scrollspy.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/tab.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/transition.js'
+    '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js'
+    '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-subnav.js'
+    '@MopaBootstrapBundle/Resources/public/js/html5bp_plugins.js'
+    '@MopaBootstrapBundle/Resources/public/js/html5bp_script.js'
+    output='js/foot_compiled.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="popover"]').popover();
+
+            $('.datepicker').datepicker();
+        });
+    </script>
+{% endblock foot_script %}
+
+{% block footer %}
+    <div class="pagination">
+        <a href="http://symfony.guru" target="_blank">Symfony.guru</a> &copy;{{ 'now'|date('Y') }} -
+        <div>
+            <small>
+                {{ kernel_environment|trans|capitalize }}
+            </small>
+        </div>
+    </div>
+{% endblock footer %}

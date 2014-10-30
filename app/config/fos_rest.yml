@@ -1,0 +1,16 @@
+sensio_framework_extra:
+    view:    { annotations: false }
+    router:  { annotations: true }
+
+fos_rest:
+    param_fetcher_listener: true
+    body_listener: true
+    format_listener: true
+    view:
+        formats:
+            json: true
+        failed_validation: HTTP_BAD_REQUEST
+        default_engine: twig
+        view_response_listener: 'force'
+    routing_loader:
+        default_format: json

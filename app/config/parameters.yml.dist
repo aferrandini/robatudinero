@@ -1,0 +1,26 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     symfony
+    database_user:     root
+    database_password: ~
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+    debug_toolbar:          true
+    debug_redirects:        false
+    use_assetic_controller: false
+
+    node_path:  /usr/bin/node
+
+    sg_model.image.storage_directory: "%kernel.root_dir%/../images"
+
+    admin_hostname:     admin.robatudinero.local
+    api_hostname:       api.robatudinero.local

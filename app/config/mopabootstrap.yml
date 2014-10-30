@@ -1,0 +1,33 @@
+mopa_bootstrap:
+    menu: ~
+    initializr:
+        meta:
+            title:        "robatudinero.com"
+            description:  "robatudinero.com"
+            keywords:     "robatudinero.com"
+            author_name:  "robatudinero.com"
+            #author_url:   "/human.txt"
+            nofollow:     false
+            noindex:      false
+        dns_prefetch:
+              - '//ajax.googleapis.com'
+        google: ~
+            #wt: 'xxx'
+            #analytics: 'UA-xxxxxxx-xx'
+        diagnostic_mode: false
+    form:
+        checkbox_label: 'label'
+        render_required_asterisk: true
+        show_legend: false
+        show_child_legend: false
+        render_optional_text: false
+        error_type: block
+        collection:
+            widget_remove_btn:
+                attr:
+                    class: btn btn-danger btn-xs
+                icon: remove
+            widget_add_btn:
+                attr:
+                    class: btn btn-success btn-xs
+                icon: plus

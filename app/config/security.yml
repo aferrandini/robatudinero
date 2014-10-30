@@ -1,0 +1,82 @@
+security:
+    acl:
+        connection: default
+
+    providers:
+        #user_provider:
+        #    id: security.user.provider
+
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
+
+    encoders:
+        #SG\Bundle\ModelBundle\Entity\WebUser:
+        #    algorithm: sha512
+        #    encode_as_base64: false
+        #    iterations: 10
+
+        FOS\UserBundle\Entity\User:
+            algorithm: sha512
+            encode_as_base64: false
+            iterations: 10
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        #oauth_token:
+        #    pattern:    ^/oauth/v2/token
+        #    security:   false
+
+        #oauth_authorize:
+        #    pattern:    ^/oauth/v2/auth
+        #    form_login:
+        #        provider: user_provider
+        #        login_path: sg_oauth.security.auth_login
+        #        check_path: sg_oauth.security.login_check
+        #    anonymous: true
+
+        #api_doc:
+        #    pattern:    ^/api/doc
+        #    anonymous:  true
+
+        #api_images:
+        #    pattern:    ^/api/image
+        #    fos_oauth:  false
+        #    anonymous:  true
+
+        #api:
+        #    pattern:    ^/api
+        #    fos_oauth:  true
+        #    stateless:  true
+        #    anonymous:  false
+
+        backend:
+            pattern: ^/admin
+            form_login:
+                provider: fos_userbundle
+                csrf_provider: form.csrf_provider
+                login_path: /admin/login
+                check_path: /admin/login_check
+                default_target_path: /admin
+            logout:
+                path:   /admin/logout
+                target: /admin
+            anonymous: ~
+
+    access_control:
+        - { path: ^/api/doc,    roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
+        - { path: ^/api/image/, roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
+        - { path: ^/api,        roles: [ IS_AUTHENTICATED_FULLY ] }
+
+        #
+        # Backend /admin
+        #
+        - { path: ^/admin/login$, roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
+        - { path: ^/admin/reset,  roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
+        - { path: ^/admin,        roles: [ ROLE_ADMIN ], requires_channel: https }

@@ -1,0 +1,31 @@
+liip_imagine:
+    resolvers:
+        default:
+            web_path:
+                web_root: "%sg_model.image.storage_directory%"
+                cache_prefix: "/cache"
+
+    filter_sets:
+        small:
+            quality: 75
+            filters:
+                thumbnail: { size: [200, 112], mode: outbound }
+                auto_rotate: ~
+
+        medium:
+            quality: 75
+            filters:
+                thumbnail: { size: [400, 225], mode: outbound }
+                auto_rotate: ~
+
+        large:
+            quality: 100
+            filters:
+                thumbnail: { size: [800, 450], mode: inset }
+                auto_rotate: ~
+
+    loaders:
+        default:
+            filesystem:
+                data_root: "%sg_model.image.storage_directory%"
+

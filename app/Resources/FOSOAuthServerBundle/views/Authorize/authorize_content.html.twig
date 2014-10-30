@@ -1,0 +1,27 @@
+{% extends '::oauth_base.html.twig' %}
+
+{% block page_header %}
+    <div class="page-header">
+        <h4>{{ 'Solicitud de permisos'|trans }}</h4>
+    </div>
+{% endblock page_header %}
+
+{% block javascript_footer %}{% endblock javascript_footer %}
+
+{% block content_content %}
+<p>{{ 'authorize.title'|trans({'%application%': client.name }, 'FOSOAuthServerBundle') }}</p>
+
+<form action="{{ path('fos_oauth_server_authorize') }}" method="POST" class="fos_oauth_server_authorize" {{ form_enctype(form) }}>
+    <div class="form-group">
+        <button class="btn btn-success" type="submit" name="accepted"><span class="glyphicon glyphicon-ok-circle"></span> {{ 'authorize.accept'|trans({}, 'FOSOAuthServerBundle') }}</button>
+        <button class="btn btn-danger" type="submit" name="rejected"><span class="glyphicon glyphicon-ban-circle"></span> {{ 'authorize.reject'|trans({}, 'FOSOAuthServerBundle') }}</button>
+    </div>
+
+    {{ form_row(form.client_id) }}
+    {{ form_row(form.response_type) }}
+    {{ form_row(form.redirect_uri) }}
+    {{ form_row(form.state) }}
+    {{ form_row(form.scope) }}
+    {{ form_rest(form) }}
+</form>
+{% endblock content_content %}

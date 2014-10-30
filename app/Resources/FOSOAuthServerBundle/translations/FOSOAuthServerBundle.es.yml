@@ -1,0 +1,7 @@
+web:
+    meta_title: Solicitud de autorización de aplicación
+
+authorize:
+    title:  La aplicación "%application%" solicita permiso para conectar con tu usuario.
+    accept: Autorizar
+    reject: Denegar

@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="sg_security.entity.user.class">SG\Bundle\SecurityBundle\Entity\User</parameter>
+        <parameter key="sg_security.user.provider.class">SG\Bundle\SecurityBundle\Provider\UserProvider</parameter>
+    </parameters>
+
+    <services>
+        <service id="security.user.manager" class="Doctrine\ORM\EntityManager" factory-service="doctrine" factory-method="getManagerForClass">
+            <argument>%sg_security.entity.user.class%</argument>
+        </service>
+
+        <service id="security.user.repository" class="SG\Bundle\SecurityBundle\Repository\UserRepository" factory-service="security.user.manager" factory-method="getRepository">
+            <argument>%sg_security.entity.user.class%</argument>
+        </service>
+
+        <service id="security.user.provider" class="%sg_security.user.provider.class%">
+            <argument type="service" id="security.user.repository" />
+        </service>
+    </services>
+</container>

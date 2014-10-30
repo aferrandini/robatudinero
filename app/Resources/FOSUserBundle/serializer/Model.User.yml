@@ -1,0 +1,24 @@
+FOS\UserBundle\Model\User:
+    exclusion_policy: ALL
+    properties:
+        email:
+            expose: true
+            groups: [ list, task ]
+            type: string
+
+
+        username:
+            expose: true
+            groups: [ list, task ]
+            type: string
+
+        roles:
+            expose: true
+            groups: [ list ]
+            type: array
+
+    virtual_properties:
+        getPlainPassword:
+            expose: false
+            serialized_name: plainPassword
+            type: string

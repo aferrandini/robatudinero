@@ -1,0 +1,13 @@
+fos_oauth_server:
+    db_driver:           orm
+    client_class:        SG\Bundle\OAuthBundle\Entity\Client
+    access_token_class:  SG\Bundle\OAuthBundle\Entity\AccessToken
+    refresh_token_class: SG\Bundle\OAuthBundle\Entity\RefreshToken
+    auth_code_class:     SG\Bundle\OAuthBundle\Entity\AuthCode
+    service:
+        user_provider: security.user.provider
+        options:
+            supported_scopes: manager supervisor technical
+            access_token_lifetime: 7200 # 2h
+            refresh_token_lifetime: 1209600
+            auth_code_lifetime: 60

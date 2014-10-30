@@ -1,0 +1,17 @@
+SG\Bundle\SecurityBundle\Entity\User:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            type: integer
+            groups: [ list, task ]
+
+        name:
+            expose: true
+            type: string
+            groups: [ list, task ]
+
+        phone:
+            expose: true
+            type: string
+            groups: [ list, task ]

@@ -1,0 +1,20 @@
+{% extends "MopaBootstrapBundle::base.html.twig" %}
+
+{% block title %}{% endblock title %}
+
+{% block headline %}{% endblock headline %}
+
+{% block content %}
+    <div class="{% if block('content_sidebar') %}col-sm-9{% else %}col-sm-12{% endif %}">
+        {% block content_content %}
+            <strong>Hier könnte Ihre Werbung stehen ... </strong>
+        {% endblock content_content %}
+    </div>
+    {% if block('content_sidebar') %}
+        <div class="col-sm-3">
+            {% block content_sidebar %}{% endblock content_sidebar %}
+        </div>
+    {% endif %}
+{% endblock content %}
+
+{% block footer %}{% endblock footer %}
