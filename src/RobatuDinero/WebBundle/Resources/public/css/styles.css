@@ -1,0 +1,42 @@
+body{margin: 0px;}
+
+.header{width: 100%;}
+
+
+.btn-social{float: right;text-align: right;width: 139px;}
+.btn-social a{ display:block; width:42px; height:42px;border-radius:50%;-ms-border-radius:50%;-moz-border-radius:50%;-webkit-border-radius:50%;-o-border-radius: 50%;background-color:transparent;-webkit-transition: 0.2s all;-moz-transition: 0.2s all;-o-transition: 0.2s all;-ms-transition: 0.2s all;transition: 0.2s all;margin:9px 0 9px 4px; float:left}
+.btn-social a:hover {}
+a.btn-fb{ background-image:url(../images/sprite.png); background-position: 3px 0px; }
+a.btn-tw{background-image:url(../images/sprite.png); background-position: 2px -83px; }
+a.btn-fb:hover{background-position:3px -43px; background-color:#3B5998!important; border-color:#3B5998}
+a.btn-tw:hover{background-position:2px -126px; background-color:#3C8FC9!important; border-color:#3C8FC9}
+
+.navbar{margin-bottom: 0px!important;}
+.navbar-nav>li>a {padding: 20px!important;}
+
+.headerBigImage{width: 100%}
+.headerBigImage img{width: 100%}
+
+.container.mainContent{margin-top:20px; margin-bottom: 20px;text-align: center; padding: 0px;width: 100%;}
+
+.home-column-main{float: left;width:100%;height: 140px;}
+.img-circle{width: 140px;height: 140px; background-image:url(../images/sprite.png);margin: auto;}
+.img-circle.userCorrupt{background-position: -36px 8px;; }
+.img-circle.listCorrupt{background-position: -48px -127px; }
+.img-circle.contact{background-position: -48px -250px; }
+
+.footer{position: fixed;bottom: 0;width: 100%;height: 60px;background-color: #f5f5f5;}
+.container .text-muted {margin: 20px 0;}
+.text-muted {color: #777;}
+.footer .container  ul{margin: 0px;padding: 0px;margin-top: 20px;float: left;margin-right: 30px;}
+.footer .container  ul li {float:left; list-style: none; display: inline;}
+.footer .container  ul li:after {content: "|";padding: 0 10px;}
+.footer .container  ul li:last-child:after {content: "";}
+.footer .container a{color:#777; text-decoration: none;}
+.footer .container a:hover{color:#000;}
+
+.navbar-wrapper{margin-bottom: 60px;}
+
+@media only screen and (max-width: 768px) {
+    .headerBigImage{display: none;}
+}
