@@ -1,0 +1,121 @@
+{% autoescape false %}
+<!DOCTYPE html>
+<head>
+    <title>{% block title 'Roba tu Dinero - Web de memoria historica de casos de corrupción en España' %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    {% block includesHeader %}
+        <!-- Jquery Library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+        <!-- Bootstrap JS -->
+        <script src="{{ asset('bundles/web/js/bootstrap.min.js') }}"></script>
+
+        <!-- CSS Stylesheets -->
+        <link rel="stylesheet" href="{{ asset('bundles/web/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/web/css/styles.css') }}" type="text/css" media="all"/>
+
+    {% endblock includesHeader %}
+
+</head>
+
+<body>
+    <div class="navbar-wrapper">
+        <div class="container">
+            <h1>Roba tu Dinero</h1>
+
+            {% block navMenu %}
+                <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!--a class="navbar-brand" href="#">Project name</a-->
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">Portada</a></li>
+                                <li><a href="quien">Quién Roba tu Dinero</a></li>
+                                <li><a href="contact">Contacto</a></li>
+                            </ul>
+
+                            <ul class="nav navbar-nav navbar-right btn-social">
+                                <li><a href="https://www.facebook.com/RobatuDinerocom/" target="_blank" title="Síguenos en Facebook" class="btn-fb"></a></li>
+                                <li><a href="https://twitter.com/robatudinero" target="_blank" title="Síguenos en Twitter" class="btn-tw"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            {% endblock navMenu %}
+
+            {% block bigImage %}
+                <div class="headerBigImage">
+                    <img src="{{ asset('bundles/web/images/header.jpg') }}" />
+                </div>
+            {% endblock bigImage %}
+
+            {% block content %}
+                <div class="container mainContent">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <!--img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;"-->
+                            <div class="home-column-main">
+                                <div class="img-circle userCorrupt"></div>
+                            </div>
+
+                            <h2>Quién Roba tu Dinero</h2>
+                            <p>Te mostramos los casos de corrupción en España. ¿Quieres saber qué Partido Político, Sindicado o Empresa ha estado involucrada en casos de corrupción?</p>
+                            <p><a class="btn btn-default" title="Listado completo de Corruptos" href="#" role="button">Ver más &raquo;</a></p>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="home-column-main">
+                                <div class="img-circle listCorrupt"></div>
+                            </div>
+                            <h2>Rankings</h2>
+                            <p>Los corruptos que más dinero han robado, los que más interesan a la gente, los que han estado en más casos de corrupción... Todos ellos, están aquí.</p>
+                            <p>Próximamente</p>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="home-column-main">
+                                <div class="img-circle contact"></div>
+                            </div>
+                            <h2>Contacto</h2>
+                            <p>¿Echas de menos algún Caso de Corrupción? ¿Quieres enviarnos algún sobre o maletín con dinero y no sabes dónde? ¿Quieres amenazarnos? Ponte en contacto con nosotros... Para las amenazas escribe a info@operacionPunica.es</p>
+                            <p><a class="btn btn-default" title="Contacta con nosotros" href="#" role="button">Ver más &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
+            {% endblock content %}
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+    {% block footer %}
+        <div class="footer">
+            <div class="container">
+                <ul>
+                    <li><a href="#">Quién Roba tu Dinero</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                </ul>
+                <p class="text-muted">
+                    &copy; <a href="http://www.robatudinero.com">RobaTuDinero.com</a>
+                </p>
+            </div>
+        </div>
+    {% endblock footer %}
+
+</body>
+
+</html>
+{% endautoescape %}
