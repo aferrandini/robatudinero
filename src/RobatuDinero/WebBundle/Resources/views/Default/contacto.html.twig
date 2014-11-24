@@ -1,0 +1,86 @@
+{% extends "WebBundle::layout.html.twig" %}
+
+
+
+{% block jsExtras %}
+    <script>
+        $(document).ready(function() {
+            $('#navbar li').removeClass('active');
+            $('#navbar li#menuContacto').addClass('active');
+
+            $('.newCase').css('display', 'none');
+
+            $( "select#contactReason" ).change(function() {
+                if($(this).val() == 3){
+                    $('.newCase').css('display', 'block');
+                    $('.normalContact').css('display', 'none');
+                }else{
+                    $('.newCase').css('display', 'none');
+                    $('.normalContact').css('display', 'block');
+                }
+            });
+
+
+        });
+
+    </script>
+{% endblock jsExtras %}
+
+{% block bread_crumbs %}
+    <div class="breadCrumbs">
+        <ul>
+            <li class="title">Está usted en</li>
+            <li><a href="/">Portada</a></li>
+            <li>Contacto</li>
+        </ul>
+    </div>
+{% endblock bread_crumbs %}
+
+{% block content %}
+    <div class="container mainContent contactPage">
+        <h2 class="col-md-12 col-xs-12 col-sm-12">Contacta con nosotros</h2>
+
+        <div class="nopadding col-md-8 col-xs-12 col-sm-8">
+            <h3 class="col-md-12 col-xs-12 col-sm-12">A la antigua usanza</h3>
+            <p class="col-md-12 col-xs-12 col-sm-12"><strong>Cumplimenta el siguiente formulario</strong> y escríbenos lo que se te venga en gana.</p>
+            <p class="col-md-12 col-xs-12 col-sm-12">Si es una pregunta, te responderemos en cuanto encontremos un hueco, ya que estamos como locos metiendo la información de todos los casos de corrupción.</p>
+            <p class="col-md-12 col-xs-12 col-sm-12"><strong>Si quieres informarnos de un caso que no tengamos</strong>, debes incluir enlaces a noticias, para que podamos verificar toda la información del Caso.</p>
+            <p class="col-md-12 col-xs-12 col-sm-12">Si lo que quieres es <strong>enviarnos un soborno</strong>, lo sentimos pero no puedes adjuntar sobres. Pero escríbenos y te diremos cómo (guiño, guiño).</p>
+            <form class="formContact col-md-12 col-xs-12 col-sm-12">
+                <input type="text" class="col-md-12 col-xs-12 col-sm-12" placeholder="Nombre" />
+                <input type="text" class="col-md-12 col-xs-12 col-sm-12" placeholder="Apellidos" />
+                <input type="text" class="col-md-12 col-xs-12 col-sm-12" placeholder="E-mail" />
+                <select class="col-md-12 col-xs-12 col-sm-12" id="contactReason">
+                    <option value="">¿Por qué quieres contactar con nosotros?</option>
+                    <option value="1">Quiero consultaros una cosilla</option>
+                    <option value="2">Quiero quejarme</option>
+                    <option value="3">Os falta este caso!</option>
+                    <option value="4">Otro motivo que no se os ha ocurrido</option>
+                </select>
+
+                <textarea class="normalContact col-md-12 col-xs-12 col-sm-12" placeholder="Mensaje"></textarea>
+                <input type="text" class="newCase col-md-12 col-xs-12 col-sm-12" placeholder="Nombre del caso" />
+                <textarea class="newCase col-md-12 col-xs-12 col-sm-12" placeholder="Descripción del Caso"></textarea>
+                <textarea class="newCase col-md-12 col-xs-12 col-sm-12" placeholder="Listado de noticias que demuestran que ese caso existe"></textarea>
+
+                <button type="button" class="btn btn-danger">Enviar formulario</button>
+            </form>
+        </div>
+
+        <div class="nopadding col-md-4 col-xs-12 col-sm-4">
+            <h3 class="col-md-12 col-xs-12 col-sm-12">Contacto 2.0</h3>
+            <p class="col-md-12 col-xs-12 col-sm-12">¿Te da pereza rellenar el formulario? Prueba por otras vías:</p>
+            <p class="contactLinkParents col-md-12 col-xs-12 col-sm-12"><a class="contactLink mail col-md-12 col-xs-12 col-sm-12" href="mailto:quien@robatudinero.com">Nuestro mail</a></p>
+            <p class="col-md-12 col-xs-12 col-sm-12">¿Eres más modernete? Aquí tienes:</p>
+            <p class="contactLinkParents col-md-12 col-xs-12 col-sm-12"><a class="contactLink twitter col-md-12 col-xs-12 col-sm-12" href="http://www.twitter.com/robatudinero">Nuestro Twitter</a></p>
+            <p class="col-md-12 col-xs-12 col-sm-12">Y ésta es nuestra página en Facebook:</p>
+            <p class="contactLinkParents col-md-12 col-xs-12 col-sm-12"><a class="contactLink facebook col-md-12 col-xs-12 col-sm-12" href="https://www.facebook.com/RobatuDinerocom">Nuesta Fan Page</a></p>
+            <p class="col-md-12 col-xs-12 col-sm-12">¿Eres un corrupto con remordimientos? Cuéntanoslo aquí:</p>
+            <p class="contactLinkParents col-md-12 col-xs-12 col-sm-12"><a class="contactLink twitter col-md-12 col-xs-12 col-sm-12" href="http://www.twitter.com/guardiacivil">Lo siento, no volverá a ocurrir</a></p>
+            <p class="col-md-12 col-xs-12 col-sm-12">¿Nos quieres amenazar? Te escuchamos, aquí:</p>
+            <p class="contactLinkParents col-md-12 col-xs-12 col-sm-12"><a class="contactLink twitter col-md-12 col-xs-12 col-sm-12" href="http://www.twitter.com/policia">¿A que no hay huevos?</a></p>
+        </div>
+
+
+    </div>
+{% endblock content %}

@@ -16,4 +16,52 @@ class DefaultController extends Controller
     {
         return array();
     }
+
+    /**
+     * @Route("/quien")
+     * @Template()
+     */
+    public function quienAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Route("/detail")
+     * @Template()
+     */
+    public function detailAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Route("/character")
+     * @Template()
+     */
+    public function characterAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Route("/company")
+     * @Template()
+     */
+    public function companyAction()
+    {
+        return array();
+    }
+
+
+    /**
+     * @Route("/contacto")
+     * @Template()
+     */
+    public function contactoAction()
+    {
+        return array();
+    }
+
+
 }

@@ -1,0 +1,106 @@
+{% extends "WebBundle::layout.html.twig" %}
+
+
+{% block jsExtras %}
+    <script>
+
+    </script>
+{% endblock jsExtras %}
+
+{% block bread_crumbs %}
+    <div class="breadCrumbs">
+        <ul>
+            <li class="title">Está usted en</li>
+            <li><a href="/">Portada</a></li>
+            <li><a href="/quien">Quién Roba tu Dinero</a></li>
+            <li>Banco Central Europeo</li>
+        </ul>
+    </div>
+{% endblock bread_crumbs %}
+
+{% block content %}
+    <div class="container mainContent">
+        <div class="nopadding col-md-8 col-xs-12 col-sm-8">
+            <h2 class="nopadding col-md-12 col-xs-12 col-sm-12">Banco Central Europeo</h2>
+            <img class="nopadding col-md-4 col-xs-12 col-sm-4" src="{{ asset('bundles/web/images/bce.jpg') }}" />
+
+            <div class="col-md-8 col-xs-12 col-sm-8">
+
+                <ul class="caseDetails col-md-12 col-xs-12 col-sm-12">
+                    <li class="date col-md-12 col-xs-12 col-sm-12">Fundado en 1990</li>
+                    <li class="judge col-md-12 col-xs-12 col-sm-12"><a href="#casos">23 trabajadores relacionados con corrupción</a></li>
+                </ul>
+            </div>
+
+            <div class="nopadding col-md-12 col-xs-12 col-sm-12">
+                <h3 class="nopadding col-md-12 col-xs-12 col-sm-12">Breve Historia</h3>
+                <p class="nopadding col-md-12 col-xs-12 col-sm-12">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus eros non magna venenatis sagittis. Maecenas nunc libero, luctus in rutrum pulvinar, luctus quis eros. Ut porttitor nisl sed fringilla condimentum. Vestibulum a felis velit. Aliquam eget diam dapibus, interdum nunc molestie, semper velit. Mauris rutrum placerat finibus. Donec scelerisque efficitur odio, id iaculis nibh egestas sit amet. Nam cursus risus at eros ultrices porttitor. Quisque lacinia hendrerit erat, ac sodales sapien elementum ut. Donec ullamcorper viverra tincidunt. Mauris leo nulla, fermentum sed eleifend ut, viverra vitae neque. Nunc tempor purus non dolor facilisis, vitae pellentesque nibh porta. Quisque non vestibulum libero. Nulla facilisi.
+                </p>
+            </div>
+
+
+
+            <div class="nopadding col-md-12 col-xs-12 col-sm-12">
+                <h3 class="nopadding col-md-12 col-xs-12 col-sm-12"><a name="trabajo" class="nolink">Trabajadores relacionados con corrupción</a></h3>
+                <ul class="detailPeople">
+                    <li class="col-md-3 col-xs-6 col-sm-6">
+                        <a href="/character"><img src="{{ asset('bundles/web/images/rato.png') }}" class="nopadding col-md-12 col-xs-12 col-sm-12" /></a>
+                        <div class="name nopadding col-md-12 col-xs-12 col-sm-12"><a href="/company">Rodrigo Rato</a>
+                            <p>Presidente</p>
+                            <p>(2009 - 2011)</p>
+                        </div>
+                    </li>
+                    <li class="col-md-3 col-xs-6 col-sm-6">
+                        <a href="/character"><img src="{{ asset('bundles/web/images/person_generic.png') }}" class="nopadding col-md-12 col-xs-12 col-sm-12" /></a>
+                        <div class="name nopadding col-md-12 col-xs-12 col-sm-12"><a href="/company">Miguel Blesa</a>
+                            <p>Presidente</p>
+                            <p>(1996 - 2000)</p>
+                        </div>
+                    </li>
+                    <li class="col-md-3 col-xs-6 col-sm-6">
+                        <a href="/character"><img src="{{ asset('bundles/web/images/rato.png') }}" class="nopadding col-md-12 col-xs-12 col-sm-12" /></a>
+                        <div class="name nopadding col-md-12 col-xs-12 col-sm-12"><a href="/company">Jose Antonio Roca</a>
+                            <p>Consejero</p>
+                            <p>(1996 - 2000)</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="nopadding col-md-4 col-xs-12 col-sm-4">
+            <h2 class="nopadding col-md-12 col-xs-12 col-sm-12">Comparte esta información</h2>
+            <div class="share nopadding shFb col-md-4 col-xs-4 col-sm-4"><a href="" class="col-md-12 col-xs-12 col-sm-12" title="Compartir en Facebook">Compartir en Facebook</a></div>
+            <div class="share nopadding shTw col-md-4 col-xs-4 col-sm-4"><a href="" class="col-md-12 col-xs-12 col-sm-12" title="Compartir en Twitter">Compartir en Twitter</a></div>
+            <div class="share nopadding shGo col-md-4 col-xs-4 col-sm-4"><a href="" class="col-md-12 col-xs-12 col-sm-12" title="Compartir en Google+">Compartir en Google+</a></div>
+        </div>
+        <div class="nopadding col-md-4 col-xs-12 col-sm-4">
+            <h2 class="nopadding col-md-12 col-xs-12 col-sm-12">Te puede interesar</h2>
+
+
+            <div class="related nopadding col-md-12 col-xs-12 col-sm-12">
+                <a href="/detail"><img src="{{ asset('bundles/web/images/cajam.png') }}" class="col-md-4 col-xs-4 col-sm-4" /></a>
+                <h3 class="nopadding col-md-8 col-xs-8 col-sm-8"><a href="/detail">Caso Tarjetas Opacas de Bankia</a></h3>
+                <ul class="relatedDetails col-md-8 col-xs-8 col-sm-8">
+                    <li>23 personas imputadas</li>
+                    <li>2,8M defraudados</li>
+                </ul>
+                <a href="/detail" class="btn btn-default" title="Ver ficha completa de Rodrigo Rato">Ver mas</a>
+            </div>
+
+            <div class="related nopadding col-md-12 col-xs-12 col-sm-12">
+                <a href="/detail"><img src="{{ asset('bundles/web/images/cajam.png') }}" class="col-md-4 col-xs-4 col-sm-4" /></a>
+                <h3 class="nopadding col-md-8 col-xs-8 col-sm-8"><a href="/detail">Caso Gürtel</a></h3>
+                <ul class="relatedDetails col-md-8 col-xs-8 col-sm-8">
+                    <li>11 personas imputadas</li>
+                    <li>22,3M defraudados</li>
+                </ul>
+                <a href="/detail" class="btn btn-default" title="Ver ficha completa de Rodrigo Rato">Ver mas</a>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock content %}

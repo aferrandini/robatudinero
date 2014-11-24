@@ -4,6 +4,20 @@
     <title>{% block title 'Roba tu Dinero - Web de memoria historica de casos de corrupción en España' %}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
+    {% block GA %}
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-56339924-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    {% endblock GA %}
+
+
     {% block includesHeader %}
         <!-- Jquery Library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -11,9 +25,15 @@
         <!-- Bootstrap JS -->
         <script src="{{ asset('bundles/web/js/bootstrap.min.js') }}"></script>
 
+        <!-- Jquery UI -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+
         <!-- CSS Stylesheets -->
         <link rel="stylesheet" href="{{ asset('bundles/web/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('bundles/web/css/styles.css') }}" type="text/css" media="all"/>
+        <link rel="stylesheet" href="{{ asset('bundles/web/css/fonts.css') }}" type="text/css" media="all"/>
 
     {% endblock includesHeader %}
 
@@ -22,7 +42,7 @@
 <body>
     <div class="navbar-wrapper">
         <div class="container">
-            <h1>Roba tu Dinero</h1>
+            <h1><a href="/">roba<em>tu</em>dinero</a></h1>
 
             {% block navMenu %}
                 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -38,9 +58,9 @@
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="#">Portada</a></li>
-                                <li><a href="quien">Quién Roba tu Dinero</a></li>
-                                <li><a href="contact">Contacto</a></li>
+                                <li id="menuHome"><a href="/" title="Portada de Roba tu Dinero">Portada</a></li>
+                                <li id="menuQuien"><a href="/quien" title="Listado completo de corruptos">Quién Roba tu Dinero</a></li>
+                                <li id="menuContacto"><a href="/contacto" title="Contacta con nosotros">Contacto</a></li>
                             </ul>
 
                             <ul class="nav navbar-nav navbar-right btn-social">
@@ -52,48 +72,14 @@
                 </nav>
             {% endblock navMenu %}
 
-            {% block bigImage %}
-                <div class="headerBigImage">
-                    <img src="{{ asset('bundles/web/images/header.jpg') }}" />
-                </div>
-            {% endblock bigImage %}
+            {% block bigImage %}{% endblock bigImage %}
 
-            {% block content %}
-                <div class="container mainContent">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <!--img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;"-->
-                            <div class="home-column-main">
-                                <div class="img-circle userCorrupt"></div>
-                            </div>
+            {% block bread_crumbs %}{% endblock bread_crumbs %}
 
-                            <h2>Quién Roba tu Dinero</h2>
-                            <p>Te mostramos los casos de corrupción en España. ¿Quieres saber qué Partido Político, Sindicado o Empresa ha estado involucrada en casos de corrupción?</p>
-                            <p><a class="btn btn-default" title="Listado completo de Corruptos" href="#" role="button">Ver más &raquo;</a></p>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="home-column-main">
-                                <div class="img-circle listCorrupt"></div>
-                            </div>
-                            <h2>Rankings</h2>
-                            <p>Los corruptos que más dinero han robado, los que más interesan a la gente, los que han estado en más casos de corrupción... Todos ellos, están aquí.</p>
-                            <p>Próximamente</p>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="home-column-main">
-                                <div class="img-circle contact"></div>
-                            </div>
-                            <h2>Contacto</h2>
-                            <p>¿Echas de menos algún Caso de Corrupción? ¿Quieres enviarnos algún sobre o maletín con dinero y no sabes dónde? ¿Quieres amenazarnos? Ponte en contacto con nosotros... Para las amenazas escribe a info@operacionPunica.es</p>
-                            <p><a class="btn btn-default" title="Contacta con nosotros" href="#" role="button">Ver más &raquo;</a></p>
-                        </div>
-                    </div>
-                </div>
-            {% endblock content %}
+            {% block content %}{% endblock content %}
 
-
-
-
+            {% block jsExtras %}
+            {% endblock jsExtras %}
 
         </div>
 
@@ -104,12 +90,12 @@
         <div class="footer">
             <div class="container">
                 <ul>
-                    <li><a href="#">Quién Roba tu Dinero</a></li>
-                    <li><a href="#">Contacto</a></li>
-                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="/quien" title="Listado completo de corruptos">Quién Roba tu Dinero</a></li>
+                    <li><a href="/contacto" title="Contacta con nosotros">Contacto</a></li>
+                    <li><a href="/condiciones" title="Términos y condiciones">Términos y condiciones</a></li>
                 </ul>
                 <p class="text-muted">
-                    &copy; <a href="http://www.robatudinero.com">RobaTuDinero.com</a>
+                    <a href="http://www.robatudinero.com">roba<em>tu</em>dinero</a>
                 </p>
             </div>
         </div>
