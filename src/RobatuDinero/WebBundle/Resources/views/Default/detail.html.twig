@@ -1,0 +1,189 @@
+{% extends "WebBundle::layout.html.twig" %}
+
+
+{% block jsExtras %}
+    <script>
+
+    </script>
+{% endblock jsExtras %}
+
+{% block bread_crumbs %}
+    <div class="breadCrumbs">
+        <ul>
+            <li class="title">Está usted en</li>
+            <li><a href="/">Portada</a></li>
+            <li><a href="/quien">Quién Roba tu Dinero</a></li>
+            <li>Caso Preferentes de Cajamadrid</li>
+        </ul>
+    </div>
+{% endblock bread_crumbs %}
+
+{% block content %}
+    <div class="container mainContent">
+        <div class="nopadding col-md-8 col-xs-12 col-sm-8">
+            <h2 class="nopadding col-md-12 col-xs-12 col-sm-12">Caso Preferentes de Cajamadrid</h2>
+            <img class="nopadding col-md-4 col-xs-12 col-sm-4" src="{{ asset('bundles/web/images/cajam.png') }}" />
+
+            <div class="col-md-8 col-xs-12 col-sm-8">
+                <h3 class="nopadding nomarginTop col-md-12 col-xs-12 col-sm-12">Detalles del caso</h3>
+                <ul class="caseDetails col-md-12 col-xs-12 col-sm-12">
+                    <li class="judge col-md-6 col-xs-6 col-sm-6"><a href="#juez">Pablo Ruz</a></li>
+                    <li class="num col-md-6 col-xs-6 col-sm-6"><a href="#imputados">23 imputados</a></li>
+                    <li class="money col-md-6 col-xs-6 col-sm-6">1,7M defraudados</li>
+                    <li class="status col-md-6 col-xs-6 col-sm-6">Cerrado</li>
+                    <li class="date col-md-6 col-xs-6 col-sm-6">Abierto en 2013</li>
+                    <li class="date col-md-6 col-xs-6 col-sm-6">Cerrado en 2014</li>
+                    <li class="source col-md-12 col-xs-12 col-sm-12"><a href="#noticias">5 Fuentes</a></li>
+                </ul>
+            </div>
+
+            <div class="nopadding col-md-12 col-xs-12 col-sm-12">
+                <h3 class="nopadding col-md-12 col-xs-12 col-sm-12">Descripción</h3>
+                <p class="nopadding col-md-12 col-xs-12 col-sm-12">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus eros non magna venenatis sagittis. Maecenas nunc libero, luctus in rutrum pulvinar, luctus quis eros. Ut porttitor nisl sed fringilla condimentum. Vestibulum a felis velit. Aliquam eget diam dapibus, interdum nunc molestie, semper velit. Mauris rutrum placerat finibus. Donec scelerisque efficitur odio, id iaculis nibh egestas sit amet. Nam cursus risus at eros ultrices porttitor. Quisque lacinia hendrerit erat, ac sodales sapien elementum ut. Donec ullamcorper viverra tincidunt. Mauris leo nulla, fermentum sed eleifend ut, viverra vitae neque. Nunc tempor purus non dolor facilisis, vitae pellentesque nibh porta. Quisque non vestibulum libero. Nulla facilisi.
+                </p>
+            </div>
+
+            <div class="nopadding col-md-12 col-xs-12 col-sm-12">
+                <h3 class="nopadding col-md-12 col-xs-12 col-sm-12"><a name="juez" class="nolink">Juez</a></h3>
+                <ul class="detailPeople">
+                    <li class="col-md-3 col-xs-6 col-sm-6">
+                        <a href="/character"><img src="{{ asset('bundles/web/images/rato.png') }}" class="nopadding col-md-12 col-xs-12 col-sm-12" /></a>
+                        <div class="name nopadding col-md-12 col-xs-12 col-sm-12"><a href="/character">Pablo Ruz</a></div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nopadding col-md-12 col-xs-12 col-sm-12">
+                <h3 class="nopadding col-md-12 col-xs-12 col-sm-12"><a name="imputados" class="nolink">Imputados</a></h3>
+                <ul class="detailPeople">
+                    <li class="col-md-3 col-xs-6 col-sm-6">
+                        <a href="/character"><img src="{{ asset('bundles/web/images/person_generic.png') }}" class="nopadding col-md-12 col-xs-12 col-sm-12" /></a>
+                        <div class="name nopadding col-md-12 col-xs-12 col-sm-12"><a href="/character">Rodrigo Rato</a>
+                            <p>Imputado</p>
+                        </div>
+
+                    </li>
+                    <li class="col-md-3 col-xs-6 col-sm-6">
+                        <a href="/character"><img src="{{ asset('bundles/web/images/rato.png') }}" class="nopadding col-md-12 col-xs-12 col-sm-12" /></a>
+                        <div class="name nopadding col-md-12 col-xs-12 col-sm-12"><a href="/character">Rodrigo Rato</a>
+                            <p>Imputado</p>
+                        </div>
+                    </li>
+                    <li class="col-md-3 col-xs-6 col-sm-6">
+                        <a href="/character"><img src="{{ asset('bundles/web/images/rato.png') }}" class="nopadding col-md-12 col-xs-12 col-sm-12" /></a>
+                        <div class="name nopadding col-md-12 col-xs-12 col-sm-12"><a href="/character">Rodrigo Rato</a>
+                            <p>Imputado</p>
+                        </div>
+                    </li>
+                    <li class="col-md-3 col-xs-6 col-sm-6">
+                        <a href="/character"><img src="{{ asset('bundles/web/images/rato.png') }}" class="nopadding col-md-12 col-xs-12 col-sm-12" /></a>
+                        <div class="name nopadding col-md-12 col-xs-12 col-sm-12"><a href="/character">Rodrigo Rato</a>
+                            <p>Imputado</p>
+                        </div>
+                    </li>
+                    <li class="col-md-3 col-xs-6 col-sm-6">
+                        <a href="/character"><img src="{{ asset('bundles/web/images/rato.png') }}" class="nopadding col-md-12 col-xs-12 col-sm-12" /></a>
+                        <div class="name nopadding col-md-12 col-xs-12 col-sm-12"><a href="/character">Rodrigo Rato</a>
+                            <p>Imputado</p>
+                        </div>
+                    </li>
+                    <li class="col-md-3 col-xs-6 col-sm-6">
+                        <a href="/character"><img src="{{ asset('bundles/web/images/rato.png') }}" class="nopadding col-md-12 col-xs-12 col-sm-12" /></a>
+                        <div class="name nopadding col-md-12 col-xs-12 col-sm-12"><a href="/character">Rodrigo Rato</a>
+                            <p>Imputado</p>
+                        </div>
+                    </li>
+                    <li class="col-md-3 col-xs-6 col-sm-6">
+                        <a href="/character"><img src="{{ asset('bundles/web/images/rato.png') }}" class="nopadding col-md-12 col-xs-12 col-sm-12" /></a>
+                        <div class="name nopadding col-md-12 col-xs-12 col-sm-12"><a href="/character">Rodrigo Rato</a>
+                            <p>Imputado</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nopadding col-md-12 col-xs-12 col-sm-12">
+                <h3 class="nopadding col-md-12 col-xs-12 col-sm-12"><a name="noticias" class="nolink">Información del caso</a></h3>
+                <ul class="detailSources">
+                    <li class="col-md-12 col-xs-12 col-sm-12">
+                        <a href="#" target="_blank" title="Gráfico: así usaron las tarjetas opacas">Gráfico: así usaron las tarjetas opacas</a>
+                    </li>
+                    <li class="col-md-12 col-xs-12 col-sm-12">
+                        <a href="#" target="_blank" title="Se destapa el caso de las tarjetas Black">Se destapa el caso de las tarjetas Black</a>
+                    </li>
+                    <li class="col-md-12 col-xs-12 col-sm-12">
+                        <a href="#" target="_blank" title="GRÁFICO | Así usaron su 'tarjeta black' los consejeros de Caja Madrid y Bankia">GRÁFICO | Así usaron su 'tarjeta black' los consejeros de Caja Madrid y Bankia</a>
+                    </li>
+                    <li class="col-md-12 col-xs-12 col-sm-12">
+                        <a href="#" target="_blank" title="Gráfico: así usaron las tarjetas opacas">Gráfico: así usaron las tarjetas opacas</a>
+                    </li>
+                    <li class="col-md-12 col-xs-12 col-sm-12">
+                        <a href="#" target="_blank" title="Se destapa el caso de las tarjetas Black">Se destapa el caso de las tarjetas Black</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="nopadding col-md-4 col-xs-12 col-sm-4">
+            <h2 class="nopadding col-md-12 col-xs-12 col-sm-12">Comparte esta información</h2>
+            <div class="share nopadding shFb col-md-4 col-xs-4 col-sm-4"><a href="" class="col-md-12 col-xs-12 col-sm-12" title="Compartir en Facebook">Compartir en Facebook</a></div>
+            <div class="share nopadding shTw col-md-4 col-xs-4 col-sm-4"><a href="" class="col-md-12 col-xs-12 col-sm-12" title="Compartir en Twitter">Compartir en Twitter</a></div>
+            <div class="share nopadding shGo col-md-4 col-xs-4 col-sm-4"><a href="" class="col-md-12 col-xs-12 col-sm-12" title="Compartir en Google+">Compartir en Google+</a></div>
+        </div>
+        <div class="nopadding col-md-4 col-xs-12 col-sm-4">
+            <h2 class="nopadding col-md-12 col-xs-12 col-sm-12">Te puede interesar</h2>
+
+
+            <div class="related nopadding col-md-12 col-xs-12 col-sm-12">
+                <a href="/character"><img src="{{ asset('bundles/web/images/person_generic.png') }}" class="col-md-4 col-xs-4 col-sm-4" /></a>
+                <h3 class="nopadding col-md-8 col-xs-8 col-sm-8"><a href="/character">Pablo Ruz</a></h3>
+                <ul class="relatedDetails col-md-8 col-xs-8 col-sm-8">
+                    <li>Relacionado con 23 casos de corrupción</li>
+                    <li>
+                        Juez de la Audiencia Nacional
+                    </li>
+                </ul>
+                <a href="/character" class="btn btn-default" title="Ver ficha completa de Rodrigo Rato">Ver mas</a>
+            </div>
+
+            <div class="related nopadding col-md-12 col-xs-12 col-sm-12">
+                <a href="/character"><img src="{{ asset('bundles/web/images/rato.png') }}" class="col-md-4 col-xs-4 col-sm-4" /></a>
+                <h3 class="nopadding col-md-8 col-xs-8 col-sm-8"><a href="/character">Rodrigo Rato</a></h3>
+                <ul class="relatedDetails col-md-8 col-xs-8 col-sm-8">
+                    <li>Relacionado con 23 casos de corrupción</li>
+                    <li>
+                        Presidente del BCE, Presidente de Bankia, Ministro de Interior...
+                    </li>
+                </ul>
+                <a href="/character" class="btn btn-default" title="Ver ficha completa de Rodrigo Rato">Ver mas</a>
+            </div>
+
+            <div class="related nopadding col-md-12 col-xs-12 col-sm-12">
+                <a href="/company"><img src="{{ asset('bundles/web/images/company_generic.png') }}" class="col-md-4 col-xs-4 col-sm-4" /></a>
+                <h3 class="nopadding col-md-8 col-xs-8 col-sm-8"><a href="/company">Cajamadrid</a></h3>
+                <ul class="relatedDetails col-md-8 col-xs-8 col-sm-8">
+                    <li>Fundada en 1979</li>
+                    <li>8 trabajadores relacionados con casos de corrupción</li>
+                </ul>
+                <a href="/company" class="btn btn-default" title="Ver ficha completa de Cajamadrid">Ver mas</a>
+            </div>
+
+
+            <div class="related nopadding col-md-12 col-xs-12 col-sm-12">
+                <a href="/character"><img src="{{ asset('bundles/web/images/rato.png') }}" class="col-md-4 col-xs-4 col-sm-4" /></a>
+                <h3 class="nopadding col-md-8 col-xs-8 col-sm-8"><a href="/character">Miguel Blesa</a></h3>
+                <ul class="relatedDetails col-md-8 col-xs-8 col-sm-8">
+                    <li>Relacionado con 12 casos de corrupción</li>
+                    <li>
+                        Presidente de Cajamadrid, Consejo de Administración de Telemadrid, Consejo de Administración Grupo Dragados...
+                    </li>
+                </ul>
+                <a href="/character" class="btn btn-default" title="Ver ficha completa de Rodrigo Rato">Ver mas</a>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock content %}

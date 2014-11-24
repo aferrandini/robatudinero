@@ -1,0 +1,424 @@
+{% extends "WebBundle::layout.html.twig" %}
+
+
+{% block bread_crumbs %}
+    <div class="breadCrumbs">
+        <ul>
+            <li class="title">Está usted en</li>
+            <li><a href="/">Portada</a></li>
+            <li>Quién Roba tu Dinero</li>
+        </ul>
+    </div>
+{% endblock bread_crumbs %}
+
+
+{% block jsExtras %}
+    <script>
+        $(document).ready(function() {
+            $('#navbar li').removeClass('active');
+            $('#navbar li#menuQuien').addClass('active');
+
+            $('#filterDate').click(function(){
+                if ($(this).is(':checked') ){
+                    $('#startDate').parent('.filterRow').removeClass('hideFilter');
+                    $('#endDate').parent('.filterRow').removeClass('hideFilter');
+                    $('#year').parent('.filterRow').addClass('hideFilter');
+                }else{
+                    $('#startDate').parent('.filterRow').addClass('hideFilter');
+                    $('#endDate').parent('.filterRow').addClass('hideFilter');
+                    $('#year').parent('.filterRow').removeClass('hideFilter');
+                }
+            });
+
+            $( "#startDate" ).datepicker({ dateFormat: "dd-mm-yy" });
+            $( "#endDate" ).datepicker({ dateFormat: "dd-mm-yy" });
+
+        });
+
+    </script>
+{% endblock jsExtras %}
+
+{% block content %}
+    <div class="container mainContent">
+        <div class="filter col-md-3 nopadding col-xs-12 col-sm-12">
+            <h2>Filtra los resultados</h2>
+            <form>
+                <div class="tabbable tabs-left">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tabImputed" class="people" data-toggle="tab" title="Filtrar por Imputados">Imputados</a></li>
+                        <li><a href="#tabCompany" class="company" data-toggle="tab" title="Filtrar por Entidad">Entidad</a></li>
+                        <li><a href="#tabLoc" class="loc" data-toggle="tab" title="Filtrar por Localización">Localización</a></li>
+                        <li><a href="#tabDate" class="date" data-toggle="tab" title="Filtrar por Fecha">Fecha</a></li>
+                        <li><a href="#tabJudge" class="judge" data-toggle="tab" title="Filtrar por Juez">Juez</a></li>
+                    </ul>
+                    <div class="tab-content col-md-9  col-xs-10 col-sm-11">
+
+                        <div class="tab-pane active" id="tabImputed">
+                            <div class="filterRow col-md-12 col-xs-12 col-sm-12">
+                                <label for="imputed">Buscar imputado</label>
+                                <input type="text" id="imputed" />
+                            </div>
+                            <div class="filterRow col-md-12 col-xs-12 col-sm-12">
+                                <label for="">Los más buscados:</label>
+                                <ol class="topSearch">
+                                    <li><a href="/character" data-value="barcenas">Luis Bárcenas</a></li>
+                                    <li><a href="/character" data-value="rato">Rodrigo Rato</a></li>
+                                    <li><a href="/character" data-value="blesa">Miguel Blesa</a></li>
+                                    <li><a href="/character" data-value="granados">Alberto Granados</a></li>
+                                    <li><a href="/character" data-value="pantoja">Isabel Pantoja</a></li>
+                                </ol>
+                            </div>
+
+                            <button type="button" class="btn btn-danger">Buscar</button>
+
+                        </div>
+
+                        <div class="tab-pane" id="tabCompany">
+                            <div class="filterRow col-md-12 col-xs-12 col-sm-12">
+                                <label for="company">Buscar entidad</label>
+                                <input type="text" id="company" />
+                            </div>
+                            <div class="filterRow col-md-12 col-xs-12 col-sm-12">
+                                <label for="">Las más buscadas:</label>
+                                <ol class="topSearch">
+                                    <li><a href="" data-value="psoe">PSOE</a></li>
+                                    <li><a href="" data-value="pp">Partido Popular</a></li>
+                                    <li><a href="" data-value="ccoo">CCOO</a></li>
+                                    <li><a href="" data-value="cofely">Cofely</a></li>
+                                    <li><a href="" data-value="cajamadrid">Caja Madrid</a></li>
+                                </ol>
+                            </div>
+
+                            <button type="button" class="btn btn-danger">Buscar</button>
+
+                        </div>
+
+                        <div class="tab-pane" id="tabDate">
+
+                            <div class="filterRow col-md-12 col-xs-12 col-sm-12">
+                                <label for="year">Buscar por Año</label>
+                                <select id="year">
+                                    <option value="">Todos</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                </select>
+                            </div>
+
+                            <div class="filterRow col-md-12 col-xs-12 col-sm-12">
+                                <input type="checkbox" id="filterDate" />
+                                <label for="filterDate">Quiero filtrar por fechas concretas</label>
+                            </div>
+                            <div class="filterRow hideFilter col-md-12 col-xs-12 col-sm-12">
+                                <label for="startDate">Desde la fecha</label>
+                                <input type="text" id="startDate" />
+                            </div>
+                            <div class="filterRow hideFilter col-md-12 col-xs-12 col-sm-12">
+                                <label for="endDate">Hasta la fecha</label>
+                                <input type="text" id="endDate" />
+                            </div>
+
+                            <button type="button" class="btn btn-danger">Buscar</button>
+
+                        </div>
+                        <div class="tab-pane" id="tabLoc">
+                            <div class="filterRow col-md-12 col-xs-12 col-sm-12">
+                                <label for="location">Buscar por Comunidad</label>
+                                <select id="year">
+                                    <option value="">Todas</option>
+                                    <option value="andalucia">Andalucía</option>
+                                    <option value="aragon">Aragón</option>
+                                    <option value="asturias">Asturias</option>
+                                    <option value="baleares">Islas Baleares</option>
+                                    <option value="canarias">Canarias</option>
+                                    <option value="cantabria">Cantabria</option>
+                                    <option value="castillalamancha">Castilla-La Mancha</option>
+                                    <option value="castillaleon">Castilla y León</option>
+                                    <option value="catalunya">Cataluña</option>
+                                    <option value="comunidadvalenciana">Comunidad Valenciana</option>
+                                    <option value="extremadura">Extremadura</option>
+                                    <option value="galicia">Galicia</option>
+                                    <option value="larioja">La Rioja</option>
+                                    <option value="madrid">Madrid</option>
+                                    <option value="navarra">Navarra</option>
+                                    <option value="euskadi">País Vasco</option>
+                                    <option value="murcia">Región de Murcia</option>
+                                    <option value="ceuta">Ceuta</option>
+                                    <option value="melilla">Melilla</option>
+                                </select>
+                            </div>
+                            <div class="filterRow col-md-12 col-xs-12 col-sm-12">
+                                <label for="">Las más buscadas:</label>
+                                <ol class="topSearch">
+                                    <li><a href="" data-value="madrid">Madrid</a></li>
+                                    <li><a href="" data-value="madrid">Cataluña</a></li>
+                                    <li><a href="" data-value="madrid">Andalucía</a></li>
+                                    <li><a href="" data-value="madrid">Euskadi</a></li>
+                                    <li><a href="" data-value="madrid">Región de Murcia</a></li>
+                                </ol>
+                            </div>
+
+                            <button type="button" class="btn btn-danger">Buscar</button>
+                        </div>
+
+                        <div class="tab-pane" id="tabJudge">
+                            <div class="filterRow col-md-12 col-xs-12 col-sm-12">
+                                <label for="judge">Buscar juez</label>
+                                <input type="text" id="judge" />
+                            </div>
+                            <div class="filterRow col-md-12 col-xs-12 col-sm-12">
+                                <label for="">Los más buscados:</label>
+                                <ol class="topSearch">
+                                    <li><a href="/character" data-value="josecastro">José Castro</a></li>
+                                    <li><a href="/character" data-value="pabloruz">Pablo Ruz</a></li>
+                                    <li><a href="/character" data-value="mercedesalaya">Mercedes Alaya</a></li>
+                                    <li><a href="/character" data-value="miguelangeltorres">Miguel Ángel Torres</a></li>
+                                    <li><a href="/character" data-value="javiergomezbermudez">Javier Gómez Bermúdez</a></li>
+                                </ol>
+                            </div>
+
+                            <button type="button" class="btn btn-danger">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="results col-md-9 col-xs-12 col-sm-12">
+            <h2 class="col-md-7 col-xs-12 col-sm-12">142 casos encontrados</h2>
+            <div class="nopadding shareInfo col-md-5 col-xs-12 col-sm-12">
+                <h4 class="nopadding padTop5 col-md-6 col-xs-6 col-sm-9">Comparte esta información</h4>
+                <div class="share nopadding shFb col-md-2 col-xs-2 col-sm-1"><a href="" class="col-md-12 col-xs-12 col-sm-12" title="Compartir en Facebook">Compartir en Facebook</a></div>
+                <div class="share nopadding shTw col-md-2 col-xs-2 col-sm-1"><a href="" class="col-md-12 col-xs-12 col-sm-12" title="Compartir en Twitter">Compartir en Twitter</a></div>
+                <div class="share nopadding shGo col-md-2 col-xs-2 col-sm-1"><a href="" class="col-md-12 col-xs-12 col-sm-12" title="Compartir en Google+">Compartir en Google+</a></div>
+            </div>
+            <div class="row col-md-12 col-xs-12 col-sm-12">
+                <a href="/detail"><img src="{{ asset('bundles/web/images/cajam.png') }}" class="col-md-3 col-xs-3 col-sm-3" /></a>
+                <h3 class="col-md-9 col-xs-9 col-sm-9"><a href="/detail">Caso Preferentes de Cajamadrid</a></h3>
+
+                <ul class="listPeople col-md-9 col-xs-9 col-sm-9">
+                    <li class="col-md-12 col-xs-12 col-sm-12">
+                        <strong class="col-md-2  col-xs-12 col-sm-2">Juez:</strong>
+                        <ul class="listPeopleDetails col-md-10 col-xs-12 col-sm-10">
+                            <li>
+                                <a href="/character" class="personDetail">Pablo Ruz</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="col-md-12 col-xs-12 col-sm-12">
+                        <strong class="col-md-2  col-xs-12 col-sm-2">Imputados:</strong>
+                        <ul class="listPeopleDetails col-md-10 col-xs-12 col-sm-10">
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Geraro Díaz Ferrán imputado en Caso Preferentes de Cajamadrid">Gerardo Díaz Ferrán</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="details col-md-9 col-sm-12 col-xs-12">
+                    <span class="date col-md-3 col-sm-3 col-xs-3" title="El caso se abrió en 2013">2013</span>
+                    <span class="money col-md-3 col-sm-3 col-xs-3" title="Se defraudaron 1,7M de Euros">1,7M</span>
+                    <span class="num col-md-3 col-sm-3 col-xs-3" title="23 personas imputadas">23</span>
+                    <span class="status col-md-3 col-sm-3 col-xs-3" title="Estado del caso: En estudio">En estudio</span>
+                    <!--a class="btn btn-default col-md-3 col-sm-12 col-xs-12" title="Listado completo de Corruptos" href="/quien" role="button">Ver más »</a-->
+                </div>
+                <a href="/detail" class="linkRow" title="Ver detalles del caso Preferentes de Cajamadrid">Ver detalles</a>
+            </div>
+
+
+
+            <div class="row col-md-12">
+                <a href="/detail"><img src="{{ asset('bundles/web/images/case_generic.png') }}" class="col-md-3 col-xs-3 col-sm-3" /></a>
+                <h3 class="col-md-9 col-xs-9 col-sm-9"><a href="/detail">Caso Preferentes de Cajamadrid</a></h3>
+
+                <ul class="listPeople col-md-9 col-xs-9 col-sm-9">
+                    <li class="col-md-12 col-xs-12 col-sm-12">
+                        <strong class="col-md-2  col-xs-12 col-sm-2">Juez:</strong>
+                        <ul class="listPeopleDetails col-md-10 col-xs-12 col-sm-10">
+                            <li>
+                                <a href="/character" class="personDetail">Pablo Ruz</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="col-md-12 col-xs-12 col-sm-12">
+                        <strong class="col-md-2  col-xs-12 col-sm-2">Imputados:</strong>
+                        <ul class="listPeopleDetails col-md-10 col-xs-12 col-sm-10">
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Geraro Díaz Ferrán imputado en Caso Preferentes de Cajamadrid">Gerardo Díaz Ferrán</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <div class="details col-md-9 col-sm-12 col-xs-12">
+                    <span class="date col-md-3 col-sm-3 col-xs-3" title="El caso se abrió en 2013">2013</span>
+                    <span class="money col-md-3 col-sm-3 col-xs-3" title="Se defraudaron 1,7M de Euros">1,7M</span>
+                    <span class="num col-md-3 col-sm-3 col-xs-3" title="23 personas imputadas">23</span>
+                    <span class="status col-md-3 col-sm-3 col-xs-3" title="Estado del caso: En estudio">En estudio</span>
+                    <!--a class="btn btn-default col-md-3 col-sm-12 col-xs-12" title="Listado completo de Corruptos" href="/quien" role="button">Ver más »</a-->
+                </div>
+                <a href="/detail" class="linkRow" title="Ver detalles del caso Preferentes de Cajamadrid">Ver detalles</a>
+            </div>
+
+
+
+
+            <div class="row col-md-12">
+                <a href="/detail"><img src="{{ asset('bundles/web/images/cajam.png') }}" class="col-md-3 col-xs-3 col-sm-3" /></a>
+                <h3 class="col-md-9 col-xs-9 col-sm-9"><a href="/detail">Caso Preferentes de Cajamadrid</a></h3>
+
+                <ul class="listPeople col-md-9 col-xs-9 col-sm-9">
+                    <li class="col-md-12 col-xs-12 col-sm-12">
+                        <strong class="col-md-2  col-xs-12 col-sm-2">Juez:</strong>
+                        <ul class="listPeopleDetails col-md-10 col-xs-12 col-sm-10">
+                            <li>
+                                <a href="/character" class="personDetail">Pablo Ruz</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="col-md-12 col-xs-12 col-sm-12">
+                        <strong class="col-md-2  col-xs-12 col-sm-2">Imputados:</strong>
+                        <ul class="listPeopleDetails col-md-10 col-xs-12 col-sm-10">
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Geraro Díaz Ferrán imputado en Caso Preferentes de Cajamadrid">Gerardo Díaz Ferrán</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="details col-md-9 col-sm-12 col-xs-12">
+                    <span class="date col-md-3 col-sm-3 col-xs-3" title="El caso se abrió en 2013">2013</span>
+                    <span class="money col-md-3 col-sm-3 col-xs-3" title="Se defraudaron 1,7M de Euros">1,7M</span>
+                    <span class="num col-md-3 col-sm-3 col-xs-3" title="23 personas imputadas">23</span>
+                    <span class="status col-md-3 col-sm-3 col-xs-3" title="Estado del caso: En estudio">En estudio</span>
+                    <!--a class="btn btn-default col-md-3 col-sm-12 col-xs-12" title="Listado completo de Corruptos" href="/quien" role="button">Ver más »</a-->
+                </div>
+                <a href="/detail" class="linkRow" title="Ver detalles del caso Preferentes de Cajamadrid">Ver detalles</a>
+            </div>
+
+
+
+            <div class="row col-md-12">
+                <a href="/detail"><img src="{{ asset('bundles/web/images/cajam.png') }}" class="col-md-3 col-xs-3 col-sm-3" /></a>
+                <h3 class="col-md-9 col-xs-9 col-sm-9"><a href="/detail">Caso Preferentes de Cajamadrid</a></h3>
+
+                <ul class="listPeople col-md-9 col-xs-9 col-sm-9">
+                    <li class="col-md-12 col-xs-12 col-sm-12">
+                        <strong class="col-md-2  col-xs-12 col-sm-2">Juez:</strong>
+                        <ul class="listPeopleDetails col-md-10 col-xs-12 col-sm-10">
+                            <li>
+                                <a href="/character" class="personDetail">Pablo Ruz</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="col-md-12 col-xs-12 col-sm-12">
+                        <strong class="col-md-2  col-xs-12 col-sm-2">Imputados:</strong>
+                        <ul class="listPeopleDetails col-md-10 col-xs-12 col-sm-10">
+                            <li>
+                                <a href="/character" class="personDetail" title="Miguel Blesa imputado en Caso Preferentes de Cajamadrid">Miguel Blesa</a>
+                            </li>
+                            <li>
+                                <a href="/character" class="personDetail" title="Geraro Díaz Ferrán imputado en Caso Preferentes de Cajamadrid">Gerardo Díaz Ferrán</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <div class="details col-md-9 col-sm-12 col-xs-12">
+                    <span class="date col-md-3 col-sm-3 col-xs-3" title="El caso se abrió en 2013">2013</span>
+                    <span class="money col-md-3 col-sm-3 col-xs-3" title="Se defraudaron 1,7M de Euros">1,7M</span>
+                    <span class="num col-md-3 col-sm-3 col-xs-3" title="23 personas imputadas">23</span>
+                    <span class="status col-md-3 col-sm-3 col-xs-3" title="Estado del caso: En estudio">En estudio</span>
+                    <!--a class="btn btn-default col-md-3 col-sm-12 col-xs-12" title="Listado completo de Corruptos" href="/quien" role="button">Ver más »</a-->
+                </div>
+                <a href="/detail" class="linkRow" title="Ver detalles del caso Preferentes de Cajamadrid">Ver detalles</a>
+            </div>
+
+        </div>
+
+        <div class="pagination nopadding col-md-12 col-sm-12 col-xs-12">
+            <ul>
+                <li><a href="" class="active">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">5</a></li>
+                <li><a href="">6</a></li>
+                <li><a href="">7</a></li>
+                <li><a href="">8</a></li>
+                <li><a href="">9</a></li>
+                <li><a href="">10</a></li>
+            </ul>
+        </div>
+
+    </div>
+{% endblock content %}

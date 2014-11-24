@@ -1,1 +1,50 @@
 {% extends "WebBundle::layout.html.twig" %}
+
+{% block bigImage %}
+    <div class="headerBigImage">
+        <img src="{{ asset('bundles/web/images/header.jpg') }}" />
+    </div>
+{% endblock bigImage %}
+
+{% block jsExtras %}
+    <script>
+        $(document).ready(function() {
+            $('#navbar li').removeClass('active');
+            $('#navbar li#menuHome').addClass('active');
+        });
+
+    </script>
+{% endblock jsExtras %}
+
+{% block content %}
+    <div class="container mainContent alignCenter">
+        <div class="row">
+            <div class="col-lg-4">
+                <!--img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;"-->
+                <div class="home-column-main">
+                    <div class="img-circle userCorrupt"></div>
+                </div>
+
+                <h2><a title="Listado completo de Corruptos" href="/quien">Quién Roba tu Dinero</a></h2>
+                <p>Te mostramos los casos de corrupción en España. ¿Quieres saber qué Partido Político, Sindicado o Empresa ha estado involucrada en casos de corrupción?</p>
+                <p><a class="btn btn-default" title="Listado completo de Corruptos" href="/quien" role="button">Ver más &raquo;</a></p>
+            </div>
+            <div class="col-lg-4">
+                <div class="home-column-main">
+                    <div class="img-circle listCorrupt"></div>
+                </div>
+                <h2><a title="Rankings de Corruptos" href="#">Rankings</a></h2>
+                <p>Los corruptos que más dinero han robado, los que más interesan a la gente, los que han estado en más casos de corrupción... Todos ellos, están aquí.</p>
+                <p>Próximamente</p>
+            </div>
+            <div class="col-lg-4">
+                <div class="home-column-main">
+                    <div class="img-circle contact"></div>
+                </div>
+                <h2><a title="Contacta con nosotros" href="/contacto">Contacto</a></h2>
+                <p>¿Echas de menos algún Caso de Corrupción? ¿Quieres enviarnos algún sobre o maletín con dinero y no sabes dónde? ¿Quieres amenazarnos? Ponte en contacto con nosotros... Para las amenazas escribe a info@operacionPunica.es</p>
+                <p><a class="btn btn-default" title="Contacta con nosotros" href="/contacto" role="button">Ver más &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
