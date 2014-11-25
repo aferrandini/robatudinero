@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             new Nelmio\CorsBundle\NelmioCorsBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
             new RobatuDinero\WebBundle\WebBundle(),
+            new RobatuDinero\DataBundle\DataBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
